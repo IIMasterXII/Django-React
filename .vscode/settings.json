@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/Users/erichshowalter/.local/share/virtualenvs/Django-React-HagFcnma/bin/python",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}
