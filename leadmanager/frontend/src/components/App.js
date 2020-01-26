@@ -6,6 +6,7 @@ import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 import Header from './layout/Header';
+import Welcome from './layout/Welcome';
 import Dashboard from './leads/Dashboard';
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
@@ -33,11 +34,12 @@ class App extends Component {
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
                     <Router>
                         <Fragment>
-                            <Header />
-                            <Alerts />
-                            <div className="container">
+                            <div className="d-flex flex-column h-100" style={{ minHeight: "100vh" }}>
+                                <Header />
+                                <Alerts />
                                 <Switch>
-                                    <PrivateRoute exact path="/" component={Dashboard} />
+                                    <Route exact path="/" component={Welcome} />
+                                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
                                     <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
                                 </Switch>
@@ -45,7 +47,7 @@ class App extends Component {
                         </Fragment>
                     </Router>
                 </AlertProvider>
-            </Provider>
+            </Provider >
         )
     }
 }
