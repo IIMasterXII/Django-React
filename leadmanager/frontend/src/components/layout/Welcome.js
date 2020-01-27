@@ -1,4 +1,8 @@
 import React, { Component, useCallback, useRef } from 'react'
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import KeyImage from '../../../images/django-react.svg'
 import SVG from 'react-inlinesvg';
 import { useSpring, animated, interpolate } from 'react-spring'
@@ -32,11 +36,23 @@ function WelcomeAnimation() {
 }
 
 export class Welcome extends Component {
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
+    }
+
     render() {
+        if (this.props.isAuthenticated) {
+            return <Redirect to="/dashboard" />;
+        }
         return (
             <WelcomeAnimation />
         )
     }
 }
 
-export default Welcome
+const mapStateToProps = state => ({
+    isAuthenticated: state.authReducer.isAuthenticated
+});
+
+export default connect(mapStateToProps, {})(Welcome);
