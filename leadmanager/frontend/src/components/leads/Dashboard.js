@@ -4,7 +4,7 @@ import Leads from './Leads';
 
 export default function Dashboard() {
     return (
-        <div className="container">
+        <div className="container position-relative" style={{ top: '50px' }}>
             <Fragment>
                 <Form />
                 <Leads />

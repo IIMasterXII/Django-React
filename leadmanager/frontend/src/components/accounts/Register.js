@@ -46,7 +46,7 @@ export class Register extends Component {
         }
         const { username, email, password, password2 } = this.state;
         return (
-            <div className="container">
+            <div className="container position-relative" style={{ top: '50px' }}>
                 <div className="col-md-6 m-auto">
                     <div className="card card-body mt-5">
                         <h2 className="text-center">Register</h2>

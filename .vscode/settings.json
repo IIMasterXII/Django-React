@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\erich\\.virtualenvs\\Django-React-v1CSz26z\\Scripts\\python.exe",
+    "python.pythonPath": "/Users/erichshowalter/.local/share/virtualenvs/Django-React-HagFcnma/bin/python",
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     }
