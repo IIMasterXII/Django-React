@@ -6,12 +6,12 @@ import { addLead } from '../../actions/leads';
 export class Form extends Component {
     state = {
         name: '',
-        email: '',
-        message: ''
+        amount: 1
     }
 
     static propTypes = {
-        addLead: PropTypes.func.isRequired
+        addLead: PropTypes.func.isRequired,
+        loadAccount: PropTypes.func.isRequired
     };
 
     onChange = e => this.setState({
@@ -20,21 +20,20 @@ export class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { name, email, message } = this.state;
-        const lead = { name, email, message };
+        const { name, amount } = this.state;
+        const lead = { name, amount };
         this.props.addLead(lead);
-        this.props.setState({
+        this.setState({
             name: "",
-            email: "",
-            message: ""
+            amount: 1
         });
     }
 
     render() {
-        const { name, email, message } = this.state;
+        const { name, amount } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
-                <h2>Add Lead</h2>
+                <h2>Place a Bet</h2>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Name</label>
@@ -47,23 +46,15 @@ export class Form extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Email</label>
+                        <label>Amount</label>
                         <input
-                            type="email"
-                            name="email"
+                            type="number"
+                            name="amount"
                             className="form-control"
                             onChange={this.onChange}
-                            value={email}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Message</label>
-                        <textarea
-                            type="text"
-                            name="message"
-                            className="form-control"
-                            onChange={this.onChange}
-                            value={message}
+                            value={amount}
+                            min="1"
+                            max="1000"
                         />
                     </div>
                     <div className="form-group">

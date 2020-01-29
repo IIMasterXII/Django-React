@@ -22,6 +22,8 @@ export class Alerts extends Component {
                 alert.error(error.msg.non_field_errors.join());
             if (error.msg.username)
                 alert.error(error.msg.username.join());
+            if (error.msg.betAmount)
+                alert.error(error.msg.betAmount.join());
         }
         if (message != prevProps.message) {
             if (message.deleteLead)

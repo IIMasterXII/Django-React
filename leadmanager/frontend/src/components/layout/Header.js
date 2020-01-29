@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
-import KeyImage from '../../../images/django-react.svg'
-import SVG from 'react-inlinesvg';
+import Logo from '../../../images/django-react.svg';
 
 export class Header extends Component {
 
@@ -40,7 +39,7 @@ export class Header extends Component {
 
         return (
             <nav className="navbar navbar-expand-sm navbar-light position-absolute w-100" style={{ zIndex: '10', height: '50px' }}>
-                <a className="navbar-brand p-0" href="#"><SVG src={KeyImage} width="50" height="50" /></a>
+                <a className="navbar-brand p-0" href="#"><img src={Logo} width='50' height='50' /></a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

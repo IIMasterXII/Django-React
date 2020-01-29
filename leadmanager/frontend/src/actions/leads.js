@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createMessage, returnErrors } from './messages';
 import { tokenConfig } from './auth';
+import { loadAccount } from './auth'
 
 import { GET_LEADS, DELETE_LEAD, ADD_LEAD } from './types';
 
@@ -46,10 +47,13 @@ export const addLead = (lead) => (dispatch, getState) => {
                 type: ADD_LEAD,
                 payload: res.data
             });
+            dispatch(
+                loadAccount()
+            );
         })
-        .catch(err =>
+        .catch(err => {
             dispatch(
                 returnErrors(err.response.data, err.response.status)
-            )
-        );
+            );
+        })
 };
